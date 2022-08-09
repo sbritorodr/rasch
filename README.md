@@ -5,7 +5,7 @@
 
 Rust CLI used to execute any terminal commands selecting multiple files inside a directory. It uses easy to remember filters and settings. *(rust + batch)*
 
-Also, you can choose not to select files and only loop n times a command with. This is
+Also, you can choose not to select files and only loop n times a command with `-l <NUMBER>`. This is
 useful for something like repeating `"echo rash"` n times to a maximun of **255**.
 
 ## Installation
@@ -33,7 +33,7 @@ Wether `[i]` is the input files and `[o]` is the output files.
 - `-k`or `keep-ext`: Keep extension files in the output files. Disabled by default so you can add the extension (`[o].ogg`) in the command.
 
 ## Build
-1. Clone this repository `git clone http://github.com/sbritorodr/rasch`
+1. Clone this repository: `git clone http://github.com/sbritorodr/rasch`
 2. Run `cargo build -r`
 
 ## How to contribute
