@@ -2,3 +2,4 @@ target/
 Cargo.lock
 test.*
 .DS_Store
+.cargo_vsc_info.json

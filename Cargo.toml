@@ -9,6 +9,10 @@ edition = "2021"
 about = "Easily do batch commands inside a directory"
 description = "Rust CLI used to execute any terminal commands selecting multiple files inside a directory. It uses easy to remember filters and settings."
 readme = "README.md"
+exclude = [
+    ".cargo_vsc_info.json",
+    "notes.md",
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
