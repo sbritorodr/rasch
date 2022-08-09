@@ -1,0 +1,12 @@
+[package]
+name = "rasch"
+author = "sbritorodr <sbritorodr@gmail.com>"
+version = "0.1.0"
+edition = "2021"
+about = "Easily do batch commands inside a directory"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3.2.13", features = ["derive"] }
+execute = "0.2.11"
