@@ -45,7 +45,7 @@ struct Cli{ //Here is all the arguments needed
 	#[clap(short = 'v', long = "verbose", required = false, help = "Prints all processing for debugging")]
 	verbose:bool,
 	#[clap(short = 'l', long = "loop-times", required = false, default_value = "0", help = "Loops the command n times and disables file selection")]
-	loop_times:u8
+	loop_times:u32 //todo: add a 'inf' or '-1' option to run until halted
 }
 
 fn main() {
@@ -87,7 +87,7 @@ fn main() {
 
 	//Now, we need to store in a vec the command replacing the '[i]' with each files
 	if args.loop_times > 0 {
-		let mut i:u8 = 0;
+		let mut i:u32 = 0;
 		while i < args.loop_times {
 			i += 1;
 			let mut command = execute::command(&args.command);
