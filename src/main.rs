@@ -109,7 +109,7 @@ fn main() {
 				i.file_stem().unwrap()
 
 			};
-			//let output_filestem_str = pathbuf_to_str(os_str_to_pathbuf).unwrap(); // Let bindings is giving me crazy
+
 			let mut output_filestem_str:&str = file_stem.to_str().unwrap();
 			let output_folder_string = if args.output.to_str().unwrap().chars().last().unwrap() != '/' {
 				format!("{}{}", args.output.as_path().to_str().unwrap(), "/")

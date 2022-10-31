@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 use std::fs;
 use std::io::ErrorKind;
-
+use regex::Regex;
 
 pub fn add_dot(input:String) -> String { // adds dot if the user didn't provide any
     if input.find('.') == None {
@@ -32,4 +32,25 @@ pub fn use_parent_dir(path:&PathBuf) -> String { //if it's a file, uses the pare
 	str_path.truncate(slash_loc);
 	//println!("New path: {:?}", path)
 	str_path
+}
+
+// This function is used when the filename/pathname has whitespaces AND 
+// isn't between quotes For example. If the file is folder/my file.opus 
+// and my command is: rasch "ffmpeg -i [i] [o].mp3"
+// ffmpeg won't detect the file, because it interprets 'my' and 'file' as
+// two different things.
+
+pub fn isInputQuoted (lineCheck: String, files: Vec<PathBuf>) -> bool {
+    
+    let reQuotedI:Regex = Regex::new(r"(\'\[i\]\')").unwrap(); //if '[i]' is in the input
+    let reWhiteSpace:Regex = Regex::new(r"\s").unwrap(); // detect whitespaces regex: /\s/g
+    if !reQuotedI.is_match(&lineCheck){
+        for file in files{
+            let fileStr = file.to_str().unwrap();
+            if !reWhiteSpace.is_match(fileStr){
+                return false
+            }
+        }
+    }
+    
 }
